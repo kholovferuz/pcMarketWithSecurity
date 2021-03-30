@@ -35,6 +35,7 @@ public class SecuritySettings extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/api/product/**").hasAnyRole("MODERATOR","SUPER_ADMIN")
                 .antMatchers(HttpMethod.PUT, "/api/product/**").hasAnyRole("MODERATOR","SUPER_ADMIN")
+                .antMatchers(HttpMethod.GET, "/api/product/**").hasAnyRole("MODERATOR","SUPER_ADMIN")
                 .antMatchers("/api/order/**").hasAnyRole("OPERATOR","SUPER_ADMIN")
                 .antMatchers("/api/product/**").hasRole("SUPER_ADMIN")
                 .antMatchers("/api/basket/**").hasRole("SUPER_ADMIN")
