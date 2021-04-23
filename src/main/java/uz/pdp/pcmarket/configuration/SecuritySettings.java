@@ -16,7 +16,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecuritySettings extends WebSecurityConfigurerAdapter {
-
+    /**
+     * This RestFULL is the clone of the pcmarket.uz (e-commerce of electronics)
+     * It has been created using Spring DATA Rest and Spring Security (basic auth)
+     */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
