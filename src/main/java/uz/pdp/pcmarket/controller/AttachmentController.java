@@ -1,6 +1,5 @@
 package uz.pdp.pcmarket.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -18,10 +17,16 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/attachment")
 public class AttachmentController {
-    @Autowired
-    AttachmentRepository attachmentRepository;
-    @Autowired
-    AttachmentContentReposiory attachmentContentRepository;
+
+    final AttachmentRepository attachmentRepository;
+
+    final AttachmentContentReposiory attachmentContentRepository;
+
+    public AttachmentController(AttachmentRepository attachmentRepository,
+                                AttachmentContentReposiory attachmentContentRepository) {
+        this.attachmentRepository = attachmentRepository;
+        this.attachmentContentRepository = attachmentContentRepository;
+    }
 
     @PostMapping("/upload")
     public String uploadFile(MultipartHttpServletRequest request) throws IOException {
